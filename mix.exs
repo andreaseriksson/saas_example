@@ -19,7 +19,7 @@ defmodule SaasExample.Mixfile do
   def application do
     [mod: {SaasExample, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :coherence]]
   end
 
   # Specifies which paths to compile per environment.
@@ -38,7 +38,8 @@ defmodule SaasExample.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:credo, "~> 0.5", only: [:dev, :test]}
+     {:credo, "~> 0.5", only: [:dev, :test]},
+     {:coherence, "~> 0.3"}
    ]
   end
 

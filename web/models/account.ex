@@ -7,6 +7,7 @@ defmodule SaasExample.Account do
   schema "accounts" do
     field :name, :string
     field :inactivated_at, Ecto.DateTime
+    has_many :users, SaasExample.User
 
     timestamps()
   end
