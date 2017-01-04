@@ -1,4 +1,7 @@
 defmodule SaasExample do
+  @moduledoc"""
+    This entrypoint for the app
+  """
   use Application
 
   # See http://elixir-lang.org/docs/stable/elixir/Application.html
