@@ -1,7 +1,5 @@
-defmodule SaasExample.PageController do
+defmodule SaasExample.DashboardController do
   use SaasExample.Web, :controller
-
-  plug :put_layout, "landing.html"
 
   def index(conn, _params) do
     render conn, "index.html"

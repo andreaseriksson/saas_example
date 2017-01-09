@@ -5,9 +5,9 @@ defmodule SaasExample.Repo.Migrations.CreateCoherenceUser do
       add :name, :string
       add :email, :string
       add :avatar, :string
+      add :account_id, references(:accounts, on_delete: :delete_all)
       # authenticatable
       add :password_hash, :string
-      add :account_id, references(:accounts, on_delete: :delete_all)
 
       timestamps()
     end

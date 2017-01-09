@@ -1,0 +1,43 @@
+<%= form_for @changeset, account_path(@conn, :create), fn f -> %>
+  <div class="form-group">
+    <h2>Create account</h2>
+  </div>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= label f, :name, "Company/Organisation", class: "control-label" %>
+    <%= text_input f, :name, class: "form-control" %>
+    <%= error_tag f, :name %>
+  </div>
+  <%= inputs_for f, :users, fn ff -> %>
+    <div class="form-group">
+      <%= label ff, :name, class: "control-label" %>
+      <%= text_input ff, :name, class: "form-control" %>
+      <%= error_tag ff, :name %>
+    </div>
+    <div class="form-group">
+      <%= label ff, :email, class: "control-label" %>
+      <%= email_input ff, :email, class: "form-control" %>
+      <%= error_tag ff, :email %>
+    </div>
+    <div class="form-group">
+      <%= label ff, :password, class: "control-label" %>
+      <%= password_input ff, :password, class: "form-control" %>
+      <%= error_tag ff, :password %>
+    </div>
+    <div class="form-group">
+      <%= label ff, :password_confirmation, class: "control-label" %>
+      <%= password_input ff, :password_confirmation, class: "form-control" %>
+      <%= error_tag ff, :password_confirmation %>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= submit "Create Account", class: "btn btn-primary btn-block" %>
+  </div>
+  <p class="form-group">By creating an account, you agree to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
+  <hr>
+  <p></p>Already have an account? <a href="#">Sign in</a></p>
+<% end %>

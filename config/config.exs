@@ -34,3 +34,12 @@ config :coherence,
   logged_out_url: "/",
   opts: [:authenticatable]
 # %% End Coherence Configuration %%
+
+# %% Coherence Configuration %%   Don't remove this line
+config :coherence,
+  user_schema: SaasExample.User,
+  repo: SaasExample.Repo,
+  module: SaasExample,
+  logged_out_url: "/",
+  opts: [:authenticatable]
+# %% End Coherence Configuration %%

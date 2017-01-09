@@ -21,6 +21,7 @@ defmodule SaasExample.User do
     |> validate_required([:name, :email])
     |> validate_format(:email, ~r/@/)
     |> unique_constraint(:email)
+    |> validate_confirmation(:password)
     |> validate_coherence(params)
   end
 end

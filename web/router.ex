@@ -21,13 +21,13 @@ defmodule SaasExample.Router do
   end
 
   # Add this block
-  scope "/" do
+  scope "/", SaasExample do
     pipe_through :browser
     coherence_routes
   end
 
   # Add this block
-  scope "/" do
+  scope "/", SaasExample do
     pipe_through :protected
     coherence_routes :protected
   end
@@ -40,11 +40,14 @@ defmodule SaasExample.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/signup", AccountController, :new
+    resources "/accounts", AccountController, only: [:create]
   end
 
-  scope "/", SaasExample do
+  scope "/app", SaasExample do
     pipe_through :protected
     # Add protected routes below
+    get "/", DashboardController, :index
   end
 
   # Other scopes may use custom stacks.

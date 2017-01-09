@@ -1,0 +1,1 @@
+<h2>Dashboard for <%= Coherence.current_user(@conn).name %></h2>

@@ -18,6 +18,17 @@ defmodule SaasExample.Account do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:name, :inactivated_at])
+    |> cast_assoc(:users)
+    |> validate_required([:name])
+  end
+
+  @doc """
+  Registration changeset only used when account is first created
+  together with the first user.
+  """
+  def registration_changeset(struct, params \\ %{}) do
+    struct
+    |> cast(params, [:name])
     |> validate_required([:name])
   end
 end
