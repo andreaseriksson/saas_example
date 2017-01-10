@@ -13,6 +13,19 @@
       body {
         padding-top: 60px;
       }
+      .dropdown-menu > li > form.link {
+        display: inline;
+      }
+      .dropdown-menu > li > form.link a {
+        display: block;
+        color: #333;
+        padding: 3px 20px;
+      }
+
+      .dropdown-menu > li > form.link a:hover {
+        text-decoration: none;
+        background-color: #f5f5f5;
+      }
     </style>
   </head>
 
@@ -25,14 +38,23 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Dashboard</a>
+          <%= link gettext("Dashboard"), to: dashboard_path(@conn, :index), class: "navbar-brand" %>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li class="active">
+              <%= link gettext("Home"), to: dashboard_path(@conn, :index) %>
+            </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link gettext("Sign out"), to: session_path(@conn, :delete), method: :delete %></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Account settings</a></li>
+                <li role="separator" class="divider"></li>
+                <li><%= link gettext("Sign out"), to: session_path(@conn, :delete), method: :delete %></li>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>
